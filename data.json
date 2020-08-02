@@ -1,0 +1,16 @@
+{
+    "hiraganaArray": {
+        "hiragana": "あ",
+        "alphabetLatin": "a",
+        "keyKeyboard": 51,
+        "orderKeyboard": 2,
+        "indiceArray": {
+            "indice0": {
+                "wordLatinIncomplete": "-rigato",
+                "wordLatin": "arigato",
+                "wordHiraganaIncomplete": "-りがと",
+                "wordHiragana": "ありがと"
+            }
+        }
+    }
+}

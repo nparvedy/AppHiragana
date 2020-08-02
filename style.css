@@ -1,0 +1,24 @@
+p, span, button
+{
+    font-size:20px;
+}
+
+h1{
+    text-align: center;
+}
+
+section#translate{
+    display:flex;
+    width:80%;
+    margin:auto;
+    justify-content:center;
+}
+
+#right{
+    width:30%;
+    height:300px;
+}
+
+#left{
+    width:50%;
+}
