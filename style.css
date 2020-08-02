@@ -7,18 +7,18 @@ h1{
     text-align: center;
 }
 
-section#translate{
+section#translate, section#translate2{
     display:flex;
     width:80%;
     margin:auto;
     justify-content:center;
 }
 
-#right{
+#right, #right2{
     width:30%;
     height:300px;
 }
 
-#left{
+#left, #left2{
     width:50%;
 }

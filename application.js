@@ -63,6 +63,16 @@ wordToGuess.addEventListener("keyup", function(event){
 
 });
 
+// Function qui permet de valider en appuyant sur la touche entrer et qui lance la function du boutton valider // version class
+var wordToGuess2 = document.getElementById("wordToGuess2");
+wordToGuess2.addEventListener("keyup", function(event){
+    if (event.keyCode === 13){
+        event.preventDefault();
+        document.getElementById("check2").click();
+    }else if (areYouReverse == 1){clickClavier(event)}
+
+});
+
 //Clavier virtuel
 
 var clavierVirtuel = document.getElementById("clavierVirtuel");
@@ -128,3 +138,73 @@ function indiceByWord(){
     theIndice.innerText = hiraganaVerso[valeur][4][0][0];
 
 }
+
+//objectif du jour, changer toute l'application en objet
+
+class AppHiragana {
+    wordToTranslate = document.getElementById("wordToTranslate2");
+    answer = document.getElementById("response2");
+    goodAnswer = document.getElementById("goodAnswer2");
+    wrongAnswer = document.getElementById("wrongAnswer2");
+    areYouReverse = 0;
+    change = 0;
+    valeur = 0;
+    valeur2 = 0;
+
+    clavierVirtuel = document.getElementById("clavierVirtuel2");
+
+    
+
+    checkWord(){
+        //vérifie l'ordre de traduction
+        if (this.areYouReverse == 1)
+        {
+            this.valeur2 = 1;
+            this.change = 0;
+        }else {
+            this.valeur2 = 0;
+            this.change = 1;
+        }
+
+        //vérifie si la réponse est correcte
+        
+        if (hiraganaVerso[this.valeur][this.change] == wordToGuess2.value)
+        {
+            this.answer.innerText = "Bonne réponse, la traduction de : " +  hiraganaVerso[this.valeur][this.valeur2] + " était bien " + hiraganaVerso[this.valeur][this.change];
+            this.goodAnswer.innerText = parseInt(this.goodAnswer.innerText) + 1;
+        }else {
+            this.answer.innerText = "Faux ! La bonne réponse de : " + hiraganaVerso[this.valeur][this.valeur2] + " était " + hiraganaVerso[this.valeur][this.change];
+            this.wrongAnswer.innerText = parseInt(this.wrongAnswer.innerText) + 1;
+        }
+
+        this.valeur = Math.floor(Math.random() * Math.floor(45));
+        this.wordToTranslate.innerText = hiraganaVerso[this.valeur][this.valeur2];
+        
+        wordToGuess2.value = "";
+        
+    }
+
+    reverse(){
+
+    }
+
+    clavierVirtuelFunction(){
+
+    }
+
+    clickClavier(event){
+
+    }
+
+    indiceByWord(){
+        
+    }
+}
+
+var AppHira = new AppHiragana();
+
+
+//AppHira.varTest;
+
+console.log(AppHira);
+

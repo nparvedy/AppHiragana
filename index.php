@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,6 +26,30 @@
         <div id="right">
             <button onclick="indiceByWord()">Indice</button>
             <p id="indice"></p>
+        </div>
+    </section>
+
+    
+    <h1>Application fait avec une class JS</h1>
+
+    <section id="translate2">
+
+        <div id="left2">
+            <span>Mot à traduire : </span> <span id="wordToTranslate2">あ</span><br>
+
+            <input type="text" id="wordToGuess2">
+
+            <button onclick="AppHira.checkWord()" id="check2" >Valider</button> <button onclick="reverse()" id="reverse2">Reverse</button> <br>
+            <p>Résultat : <span id="response2"></span></p>
+
+            <span>Bonne réponse : </span> <span id="goodAnswer2">0</span> | <span>Mauvaise réponse : </span> <span id="wrongAnswer2">0</span><br>
+
+            <div id="clavierVirtuel2"></div>
+        </div>
+
+        <div id="right2">
+            <button onclick="indiceByWord()">Indice</button>
+            <p id="indice2"></p>
         </div>
     </section>
 
