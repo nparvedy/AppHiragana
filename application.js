@@ -153,6 +153,8 @@ class AppHiragana {
 
     clavierVirtuel = document.getElementById("clavierVirtuel2");
 
+    theIndice = document.getElementById("indice2");
+
     checkWord(){
         //vérifie l'ordre de traduction
         if (this.areYouReverse == 1)
@@ -216,9 +218,7 @@ class AppHiragana {
         {
             if (nbButton == hiraganaVerso[a][3]) // permet de mettre chaque touche dans l'ordre, si c'est la bonne touche alors on lui créer son bouton
             {
-
-                console.log(this);
-                this.clavierVirtuel.innerHTML = this.clavierVirtuel.innerHTML + '<button onclick="clickClavier(event)" keyCode ="' + hiraganaVerso[a][2]+'"> ' + hiraganaVerso[a][0] + '</button>';
+                this.clavierVirtuel.innerHTML = this.clavierVirtuel.innerHTML + '<button onclick="AppHira.clickClavier(event)" keyCode ="' + hiraganaVerso[a][2]+'"> ' + hiraganaVerso[a][0] + '</button>';
 
                 if (nbButton == 11 || nbButton == 22 || nbButton == 33)
                 {
@@ -229,11 +229,24 @@ class AppHiragana {
     }
 
     clickClavier(event){
-
+        if (event.type == "click")
+        {
+            wordToGuess2.value = event.toElement.innerText;
+        }else if (event.type == "keyup") 
+        
+        {
+            for (var i = 0; i < hiraganaVerso.length; i++)
+            {
+                if (hiraganaVerso[i][2] == event.keyCode)
+                {
+                    wordToGuess2.value = hiraganaVerso[i][0];
+                }
+            }
+        }
     }
 
     indiceByWord(){
-        
+        this.theIndice.innerText = hiraganaVerso[valeur][4][0][0];
     }
 }
 

@@ -48,7 +48,7 @@
         </div>
 
         <div id="right2">
-            <button onclick="indiceByWord()">Indice</button>
+            <button onclick="AppHira.indiceByWord()">Indice</button>
             <p id="indice2"></p>
         </div>
     </section>
