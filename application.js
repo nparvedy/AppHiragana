@@ -139,7 +139,7 @@ function indiceByWord(){
 
 }
 
-//objectif du jour, changer toute l'application en objet
+//objectif du jour, changer toute l'application en class
 
 class AppHiragana {
     wordToTranslate = document.getElementById("wordToTranslate2");
@@ -152,8 +152,6 @@ class AppHiragana {
     valeur2 = 0;
 
     clavierVirtuel = document.getElementById("clavierVirtuel2");
-
-    
 
     checkWord(){
         //vérifie l'ordre de traduction
@@ -185,11 +183,49 @@ class AppHiragana {
     }
 
     reverse(){
+        if (this.areYouReverse == 0)
+        {
+            this.areYouReverse = 1;
+            this.wordToTranslate.innerText = hiraganaVerso[this.valeur][1];
+        }else {
+            this.areYouReverse = 0;
+            this.wordToTranslate.innerText = hiraganaVerso[this.valeur][0];
+        }
 
+        this.clavierVirtuelFunction();
     }
 
     clavierVirtuelFunction(){
+        if (this.areYouReverse == 1)
+        {
+            for (var i = 0; i < hiraganaVerso.length; i++) // A chaque boucle, ajoute un boutton
+            {
+                this.clavier(); 
 
+                var nbButtons = document.querySelectorAll('#clavierVirtuel2 button'); //compte le nombre de bouttons du clavier
+
+                this.clavier(nbButtons.length); //lance la fonction tant qu'il ne contient pas un bouton pour chaque hiragana
+            }
+        } else {
+            this.clavierVirtuel.innerHTML = "";
+        }
+    }
+
+    clavier(nbButton){
+        for (var a = 0; a < hiraganaVerso.length; a++)
+        {
+            if (nbButton == hiraganaVerso[a][3]) // permet de mettre chaque touche dans l'ordre, si c'est la bonne touche alors on lui créer son bouton
+            {
+
+                console.log(this);
+                this.clavierVirtuel.innerHTML = this.clavierVirtuel.innerHTML + '<button onclick="clickClavier(event)" keyCode ="' + hiraganaVerso[a][2]+'"> ' + hiraganaVerso[a][0] + '</button>';
+
+                if (nbButton == 11 || nbButton == 22 || nbButton == 33)
+                {
+                    this.clavierVirtuel.innerHTML = this.clavierVirtuel.innerHTML + "<br>";
+                }
+            }
+        }
     }
 
     clickClavier(event){
@@ -203,8 +239,28 @@ class AppHiragana {
 
 var AppHira = new AppHiragana();
 
-
 //AppHira.varTest;
 
 console.log(AppHira);
 
+// test 
+
+class Test{
+    nombre = 1;
+    jeSuisUneFonction(){
+        this.nombre = 2;
+        console.log(this.nombre);
+        this.jeSuisUneDeuxiemeFonction();
+        this.nombre = 4;
+        console.log(this.nombre);
+    }
+
+    jeSuisUneDeuxiemeFonction(){
+        this.nombre = 3;
+        console.log(this.nombre);
+    }
+}
+
+var test = new Test();
+
+test.jeSuisUneFonction();

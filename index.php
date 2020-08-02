@@ -39,7 +39,7 @@
 
             <input type="text" id="wordToGuess2">
 
-            <button onclick="AppHira.checkWord()" id="check2" >Valider</button> <button onclick="reverse()" id="reverse2">Reverse</button> <br>
+            <button onclick="AppHira.checkWord()" id="check2" >Valider</button> <button onclick="AppHira.reverse()" id="reverse2">Reverse</button> <br>
             <p>Résultat : <span id="response2"></span></p>
 
             <span>Bonne réponse : </span> <span id="goodAnswer2">0</span> | <span>Mauvaise réponse : </span> <span id="wrongAnswer2">0</span><br>
